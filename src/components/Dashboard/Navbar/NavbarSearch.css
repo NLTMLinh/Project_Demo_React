@@ -1,0 +1,14 @@
+.navbar-search {
+  padding-left: 10px; }
+  .navbar-search .input-group {
+    box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+    border-radius: 2rem; }
+    .navbar-search .input-group .input-group-text {
+      background-color: #ffffff !important;
+      border: 0 !important;
+      border-radius: 2rem; }
+    .navbar-search .input-group .form-control {
+      border: 0 solid transparent;
+      border-radius: 2rem; }
+    .navbar-search .input-group input:focus {
+      box-shadow: none; }

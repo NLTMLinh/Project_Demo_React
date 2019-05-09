@@ -1,0 +1,336 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.css";
+
+@media (min-width: 992px) and (max-width: 1140px) {
+  .footer {
+    .content-footer {
+      flex-wrap: nowrap;
+
+      .section-footer {
+        .footer-item {
+          font-size: 0.7rem !important;
+        }
+      }
+
+      .section-footer-social {
+        padding-right: 0;
+        .footer-item{
+          font-size: 0.7rem !important;
+          hr{
+            margin-bottom: 0.5rem;
+          }
+        }
+        .logo-CHPlay {
+          width: 60%;
+          padding-right: 0;
+
+          img {
+            width: 80%;
+            margin-top: 10px;
+          }
+
+        }
+        .footer-rapbank-VN {
+          padding-top: 30px !important;
+          font-size: 0.88rem !important;
+          line-height: 1.7 !important;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .header {
+    .row {
+      display: flex;
+      flex-direction: row;
+
+      .header-content {
+        width: 100%;
+        .navbar-brand{
+          width: 93% !important;
+        }
+        .App-logo {
+          padding-left: 10px;
+        }
+
+        .navbar-toggler {
+          border: 0;
+          padding: 0;
+        }
+
+      }
+      .btnLogin{
+        display: none;
+      }
+    }
+  }
+  .top-news {
+    .content-top-left-news {
+      display: block !important;
+
+      .top-left-news {
+        width: 100% !important;
+      }
+    }
+
+    .top-right-news {
+      height: 440px;
+      display: flex !important;
+      flex-direction: row !important;
+
+      .Doc-Nhieu-Nhat {
+        width: 50%;
+        padding-right: 10px;
+      }
+
+      .Editors-choice {
+        width: 50%;
+        padding-left: 15px;
+      }
+    }
+  }
+  .mid-news {
+    display: none !important;
+  }
+  .bot-news {
+    display: none !important;
+  }
+  .mobile {
+    display: flex !important;
+    flex-direction: row;
+
+    .slider {
+      padding-left: 0;
+      padding-right: 0;
+      box-shadow: 0 1px 15px 1px rgba(39, 39, 39, .1);
+      border-radius: 3px;
+    }
+  }
+  .footer {
+    .content-footer {
+      display: flex;
+      flex-direction: column !important;
+
+      .section-footer {
+        display: flex;
+        justify-content: flex-start;
+
+        .doi-tac {
+          padding-left: 240px !important;
+        }
+      }
+
+      .section-footer-social {
+        .footer-social {
+          justify-content: flex-start !important;
+
+          i {
+            padding-right: 30px !important;
+
+          }
+        }
+      }
+    }
+  }
+
+  .Login{
+    .model-content{
+      width: 100% !important;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .header {
+    .row {
+      display: flex;
+      flex-direction: row;
+
+      .header-content {
+        width: 100%;
+        .navbar-brand{
+          width: 87% !important;
+        }
+        .App-logo {
+          padding-left: 10px;
+        }
+
+        .navbar-toggler {
+          border: 0;
+          padding: 0;
+        }
+
+      }
+      .btnLogin{
+        display: none;
+      }
+    }
+  }
+  .top-news {
+    .top-left-news {
+      height: 553px;
+    }
+  }
+  .mid-news {
+    display: none !important;
+  }
+  .bot-news {
+    display: none !important;
+  }
+  .mobile {
+    display: flex !important;
+    flex-direction: column;
+
+    .content-news {
+      padding-top: 60px !important;
+      padding-left: 15px;
+      padding-right: 15px !important;
+
+      .col {
+        padding: 0;
+
+        .crash-course-col {
+          padding-right: 0;
+
+          .crash-course {
+            box-shadow: 0 1px 15px 1px rgba(39, 39, 39, .1);
+            border-radius: 3px;
+            padding-left: 0;
+          }
+
+        }
+      }
+
+      .slider {
+        padding-top: 60px;
+        padding-bottom: 30px;
+
+        .col-slider {
+          box-shadow: 0 1px 15px 1px rgba(39, 39, 39, .1);
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+  .footer {
+    .content-footer {
+      .section-footer {
+        display: flex !important;
+        flex-direction: column !important;
+
+        .doi-tac {
+          padding-left: 0 !important;
+          padding-top: 30px;
+        }
+      }
+
+      .logo-CHPlay {
+        width: 60%;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    }
+  }
+  .Login{
+    .model-content{
+      width: 100% !important;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header {
+    .row {
+      display: flex;
+      flex-direction: row;
+
+      .header-content {
+        width: 100%;
+        .navbar-brand{
+          width: 87% !important;
+        }
+        .App-logo {
+          padding-left: 10px;
+        }
+
+        .navbar-toggler {
+          border: 0;
+          padding: 0;
+        }
+
+      }
+      .btnLogin{
+        display: none;
+      }
+    }
+  }
+  .mid-news {
+    display: none !important;
+  }
+  .bot-news {
+    display: none !important;
+  }
+  .mobile {
+    display: flex !important;
+    flex-direction: column;
+
+    .content-news {
+      padding-top: 60px !important;
+      padding-left: 15px;
+      padding-right: 15px !important;
+
+      .col {
+        padding: 0;
+
+        .crash-course-col {
+          padding-right: 0;
+
+          .crash-course {
+            padding-left: 0;
+            padding-right: 0;
+            box-shadow: 0 1px 15px 1px rgba(39, 39, 39, .1);
+            border-radius: 3px;
+          }
+        }
+      }
+
+      .slider {
+        padding-top: 60px;
+        padding-bottom: 30px;
+
+        .col-slider {
+          box-shadow: 0 1px 15px 1px rgba(39, 39, 39, .1);
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+  .footer {
+    .content-footer {
+      .section-footer {
+        display: flex !important;
+        flex-direction: column !important;
+
+        .doi-tac {
+          padding-left: 0 !important;
+          padding-top: 30px;
+        }
+      }
+
+      .logo-CHPlay {
+        width: 60%;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    }
+  }
+  .Login{
+    .model-content{
+      width: 100% !important;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+.navbar-search {
+  padding-left: 10px;
+  .input-group {
+    box-shadow: 0 1px 15px 1px rgba(39, 39, 39, .1);
+    border-radius: 2rem;
+
+    .input-group-text {
+      background-color: #ffffff !important;
+      border: 0 !important;
+      border-radius: 2rem;
+    }
+
+    .form-control {
+      border: 0 solid transparent;
+      border-radius: 2rem;
+    }
+
+    input:focus {
+      box-shadow: none;
+    }
+  }
+}

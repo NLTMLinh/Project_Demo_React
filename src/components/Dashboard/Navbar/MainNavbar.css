@@ -1,0 +1,7 @@
+.main-navbar {
+  height: 70px;
+  padding-top: 10px;
+  background-color: #11cdef; }
+  .main-navbar .navbar {
+    align-items: center;
+    justify-content: flex-end; }

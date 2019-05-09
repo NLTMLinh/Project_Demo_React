@@ -1,0 +1,211 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+@font-face {
+  font-family: 'sf_pro_textregular';
+  src: url('../../assets/font/sf-pro-text-regular-webfont.woff2') format('woff2'),
+  url('../../assets/font/sf-pro-text-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+$font-family: 'sf_pro_textregular', sans-serif;
+$main-color: #1c3152;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family !important;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.mobile {
+  display: none;
+  padding-top: 60px;
+
+  .content-news {
+    padding-top: 30px;
+    display: flex;
+    padding-right: 15px;
+    .crash-course-col {
+      height: 553px;
+      padding-right: 10px;
+      .crash-course {
+        height: 100%;
+        background-color: #f1546b;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        box-shadow: 0 1px 15px 1px rgba(39, 39, 39, .1);
+        border-radius: 3px;
+
+        .crash-course-title {
+          display: flex;
+          height: 70%;
+          align-items: center;
+
+          div {
+            margin-left: 15px;
+            margin-right: 15px;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.5;
+          }
+        }
+
+        .crash-course-button {
+          height: 30%;
+          display: flex;
+
+          .crash-button-start {
+            width: 100%;
+            height: 45%;
+            margin: 30px;
+            background-color: #FF7B59;
+            border: #FF7B59 1px solid;
+            border-radius: 5px;
+            text-shadow: 0 1px 0 #FF7B59;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffffff;
+
+            &:hover {
+              background-color: #FF8E6F;
+            }
+
+            &:focus, &.focus {
+              box-shadow: none;
+            }
+
+            &.active, &:active {
+              background-color: #FF7B59;
+            }
+          }
+        }
+      }
+    }
+
+    .section-mid-news {
+      box-shadow: 0 1px 15px 1px rgba(39, 39, 39, .1);
+      border-radius: 3px;
+      height: 553px;
+      display: flex;
+      padding-left: 0;
+      flex-direction: column;
+      background-color: white;
+
+      .figure {
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .figure-caption {
+        .title {
+          font-size: 1.7rem;
+          padding-top: 10px !important;
+          padding-left: 20px !important;
+          font-weight: 600;
+          color: #000000;
+          letter-spacing: 1.7px;
+        }
+
+        .content {
+          padding-left: 20px !important;
+          padding-top: 20px !important;
+          display: flex;
+          justify-content: flex-start;
+
+          .avatar {
+            border-radius: 50%;
+            @include size(40px, 40px);
+            border: solid 1px #f5a623;
+            background-color: #ffffff;
+
+            img {
+              width: 35px;
+              height: 34px;
+            }
+          }
+
+          .post-name {
+            padding-left: 5px;
+            font-size: 1.2rem;
+            font-weight: normal;
+            color: #2e3c52;
+            letter-spacing: 0.6px;
+
+            .tag-name {
+              color: #24abb2;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+
+      .category {
+        height: 100%;
+        display: flex;
+        padding-left: 20px !important;
+        align-self: end;
+
+        .align-self-end {
+
+          padding-bottom: 20px;
+
+          a {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #4b545c;
+            text-decoration: none;
+          }
+
+          a:hover {
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+
+  .carousel-control-next {
+    display: block;
+
+    .carousel-control-next-icon {
+      height: 40px;
+      width: 40px;
+      padding-top: 500px;
+    }
+  }
+
+  .carousel-control-prev {
+    display: block;
+
+    .carousel-control-prev-icon {
+      height: 40px;
+      width: 40px;
+      padding-top: 500px;
+    }
+  }
+
+  .carousel-indicators {
+    display: none;
+  }
+}

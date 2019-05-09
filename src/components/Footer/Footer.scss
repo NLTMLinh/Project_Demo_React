@@ -1,0 +1,165 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+@font-face {
+  font-family: 'sf_pro_textregular';
+  src: url('../../assets/font/sf-pro-text-regular-webfont.woff2') format('woff2'),
+  url('../../assets/font/sf-pro-text-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+$font-family: 'sf_pro_textregular', sans-serif;
+$main-color: #1c3152;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family !important;
+  font-size: 16px;
+  font-weight: normal !important;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.footer {
+  margin-top: 47px;
+  background-color: $main-color;
+
+  .content-footer {
+    padding-right: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: row;
+
+    .section-footer {
+      margin-top: 25px;
+      margin-bottom: 25px;
+      margin-right: 0;
+      display: flex;
+      flex-direction: row;
+
+      .doi-tac {
+        padding-left: 60px;
+      }
+
+      .footer-title {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #ffffff;
+      }
+
+      .footer-item {
+        font-size: 0.8rem;
+        line-height: 2.4;
+        mix-blend-mode: lighten;
+        padding-top: 20px;
+
+        a {
+          color: #88969d;
+        }
+
+        a:hover {
+          color: #ffffff;
+          text-decoration: none;
+        }
+
+        .Ho-Tro {
+          color: #ffffff;
+        }
+
+        .footer-social {
+          width: 50%;
+          display: flex;
+          background-color: #243152;
+          justify-content: space-between;
+          padding-top: 5px;
+
+          i {
+            color: #ffffff;
+            background-color: darken($main-color, 20);
+          }
+
+        }
+      }
+
+    }
+
+    .section-footer-social {
+      margin: 25px 0 25px 10px;
+
+      .footer-title {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #ffffff;
+      }
+
+      .footer-item {
+        font-size: 0.8rem;
+        line-height: 2.4;
+        mix-blend-mode: lighten;
+        padding-top: 20px;
+
+        a {
+          color: #88969d;
+        }
+
+        a:hover {
+          color: #ffffff;
+          text-decoration: none;
+        }
+
+        .Ho-Tro {
+          color: #ffffff;
+        }
+
+        .footer-social {
+          width: 50%;
+          display: flex;
+          background-color: #243152;
+          justify-content: space-between;
+          padding-top: 5px;
+
+          i {
+            color: #ffffff;
+            background-color: darken($main-color, 20);
+            padding-right: 15px;
+          }
+
+        }
+      }
+
+      hr {
+        border: #ffffff 1px solid;
+        width: 100%;
+      }
+
+      .logo-CHPlay {
+        display: flex;
+        flex-direction: row;
+
+        img {
+          margin-top: 20px;
+          margin-right: 10px;
+        }
+      }
+
+      .footer-rapbank-VN {
+        padding-top: 45px;
+        font-size: 0.9rem;
+        line-height: 2.4;
+        color: #88969d;
+      }
+    }
+  }
+}

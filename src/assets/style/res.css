@@ -1,0 +1,187 @@
+@import url(../../../node_modules/owl.carousel/dist/assets/owl.carousel.css);
+@media (min-width: 992px) and (max-width: 1140px) {
+  .footer .content-footer {
+    flex-wrap: nowrap; }
+    .footer .content-footer .section-footer .footer-item {
+      font-size: 0.7rem !important; }
+    .footer .content-footer .section-footer-social {
+      padding-right: 0; }
+      .footer .content-footer .section-footer-social .footer-item {
+        font-size: 0.7rem !important; }
+        .footer .content-footer .section-footer-social .footer-item hr {
+          margin-bottom: 0.5rem; }
+      .footer .content-footer .section-footer-social .logo-CHPlay {
+        width: 60%;
+        padding-right: 0; }
+        .footer .content-footer .section-footer-social .logo-CHPlay img {
+          width: 80%;
+          margin-top: 10px; }
+      .footer .content-footer .section-footer-social .footer-rapbank-VN {
+        padding-top: 30px !important;
+        font-size: 0.88rem !important;
+        line-height: 1.7 !important; } }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .header .row {
+    display: flex;
+    flex-direction: row; }
+    .header .row .header-content {
+      width: 100%; }
+      .header .row .header-content .navbar-brand {
+        width: 93% !important; }
+      .header .row .header-content .App-logo {
+        padding-left: 10px; }
+      .header .row .header-content .navbar-toggler {
+        border: 0;
+        padding: 0; }
+    .header .row .btnLogin {
+      display: none; }
+  .top-news .content-top-left-news {
+    display: block !important; }
+    .top-news .content-top-left-news .top-left-news {
+      width: 100% !important; }
+  .top-news .top-right-news {
+    height: 440px;
+    display: flex !important;
+    flex-direction: row !important; }
+    .top-news .top-right-news .Doc-Nhieu-Nhat {
+      width: 50%;
+      padding-right: 10px; }
+    .top-news .top-right-news .Editors-choice {
+      width: 50%;
+      padding-left: 15px; }
+  .mid-news {
+    display: none !important; }
+  .bot-news {
+    display: none !important; }
+  .mobile {
+    display: flex !important;
+    flex-direction: row; }
+    .mobile .slider {
+      padding-left: 0;
+      padding-right: 0;
+      box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+      border-radius: 3px; }
+  .footer .content-footer {
+    display: flex;
+    flex-direction: column !important; }
+    .footer .content-footer .section-footer {
+      display: flex;
+      justify-content: flex-start; }
+      .footer .content-footer .section-footer .doi-tac {
+        padding-left: 240px !important; }
+    .footer .content-footer .section-footer-social .footer-social {
+      justify-content: flex-start !important; }
+      .footer .content-footer .section-footer-social .footer-social i {
+        padding-right: 30px !important; }
+  .Login .model-content {
+    width: 100% !important; } }
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .header .row {
+    display: flex;
+    flex-direction: row; }
+    .header .row .header-content {
+      width: 100%; }
+      .header .row .header-content .navbar-brand {
+        width: 87% !important; }
+      .header .row .header-content .App-logo {
+        padding-left: 10px; }
+      .header .row .header-content .navbar-toggler {
+        border: 0;
+        padding: 0; }
+    .header .row .btnLogin {
+      display: none; }
+  .top-news .top-left-news {
+    height: 553px; }
+  .mid-news {
+    display: none !important; }
+  .bot-news {
+    display: none !important; }
+  .mobile {
+    display: flex !important;
+    flex-direction: column; }
+    .mobile .content-news {
+      padding-top: 60px !important;
+      padding-left: 15px;
+      padding-right: 15px !important; }
+      .mobile .content-news .col {
+        padding: 0; }
+        .mobile .content-news .col .crash-course-col {
+          padding-right: 0; }
+          .mobile .content-news .col .crash-course-col .crash-course {
+            box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+            border-radius: 3px;
+            padding-left: 0; }
+      .mobile .content-news .slider {
+        padding-top: 60px;
+        padding-bottom: 30px; }
+        .mobile .content-news .slider .col-slider {
+          box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+          border-radius: 3px; }
+  .footer .content-footer .section-footer {
+    display: flex !important;
+    flex-direction: column !important; }
+    .footer .content-footer .section-footer .doi-tac {
+      padding-left: 0 !important;
+      padding-top: 30px; }
+  .footer .content-footer .logo-CHPlay {
+    width: 60%;
+    display: flex !important;
+    flex-direction: column !important; }
+  .Login .model-content {
+    width: 100% !important; } }
+
+@media (max-width: 575.98px) {
+  .header .row {
+    display: flex;
+    flex-direction: row; }
+    .header .row .header-content {
+      width: 100%; }
+      .header .row .header-content .navbar-brand {
+        width: 87% !important; }
+      .header .row .header-content .App-logo {
+        padding-left: 10px; }
+      .header .row .header-content .navbar-toggler {
+        border: 0;
+        padding: 0; }
+    .header .row .btnLogin {
+      display: none; }
+  .mid-news {
+    display: none !important; }
+  .bot-news {
+    display: none !important; }
+  .mobile {
+    display: flex !important;
+    flex-direction: column; }
+    .mobile .content-news {
+      padding-top: 60px !important;
+      padding-left: 15px;
+      padding-right: 15px !important; }
+      .mobile .content-news .col {
+        padding: 0; }
+        .mobile .content-news .col .crash-course-col {
+          padding-right: 0; }
+          .mobile .content-news .col .crash-course-col .crash-course {
+            padding-left: 0;
+            padding-right: 0;
+            box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+            border-radius: 3px; }
+      .mobile .content-news .slider {
+        padding-top: 60px;
+        padding-bottom: 30px; }
+        .mobile .content-news .slider .col-slider {
+          box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+          border-radius: 3px; }
+  .footer .content-footer .section-footer {
+    display: flex !important;
+    flex-direction: column !important; }
+    .footer .content-footer .section-footer .doi-tac {
+      padding-left: 0 !important;
+      padding-top: 30px; }
+  .footer .content-footer .logo-CHPlay {
+    width: 60%;
+    display: flex !important;
+    flex-direction: column !important; }
+  .Login .model-content {
+    width: 100% !important; } }

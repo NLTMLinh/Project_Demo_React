@@ -1,0 +1,51 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@font-face {
+  font-family: 'sf_pro_textregular';
+  src: url('../../../assets/font/sf-pro-text-regular-webfont.woff2') format('woff2'),
+  url('../../../assets/font/sf-pro-text-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+$font-family: 'sf_pro_textregular', sans-serif;
+$main-color: #1c3152;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: $font-family !important;
+  font-size: 16px;
+  font-weight: bold;;
+  font-style:normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing:normal;
+  color: #6b6b6b;
+  background-color:  #fff;
+  overflow-x: hidden;
+}
+.dashboard {
+  height: 100vh;
+  .dashboard-content {
+    height: 100%;
+    .main-content {
+      position: relative;
+      width: 100%;
+      .card{
+        margin-top: 50px;
+        margin-left: 30px;
+        margin-right: 60px;
+        box-shadow: 0 0 2rem 0 rgba(136,152,170,.15);
+        position: relative;
+        background-color: #fff;
+        background-clip: initial;
+        border: 1px solid rgba(0,0,0,.05);
+        border-radius: .375rem;
+      }
+    }
+  }
+}

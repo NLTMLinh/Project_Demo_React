@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'sf_pro_textregular';
+  src: url("../../../../assets/font/sf-pro-text-regular-webfont.woff2") format("woff2"), url("../../../../assets/font/sf-pro-text-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+table {
+  margin-top: 20px;
+  width: 100%;
+  border-color: #6b6b6b !important; }
+  table thead {
+    padding-top: 5px !important; }
+    table thead tbody tr {
+      padding-top: 5px !important;
+      border: 0.9rem;
+      border-color: #00b3ff !important; }
+
+.edit .modal {
+  text-align: center;
+  padding: 0 !important; }
+
+.edit .modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+  /* Adjusts for spacing */ }
+
+.edit .modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle; }
+
+.edit .modal-content {
+  height: 420px;
+  background-color: #ffffff;
+  border: 0;
+  border-radius: .1875rem;
+  box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+  font-family: "sf_pro_textregular", sans-serif;
+  width: 450px !important; }

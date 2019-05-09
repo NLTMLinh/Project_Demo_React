@@ -1,0 +1,10 @@
+.menu {
+  height: 54px;
+  background-image: linear-gradient(to bottom, #194a79, #153466);
+  padding-top: 17px;
+  z-index: 1; }
+  .menu .nav-item {
+    padding-left: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff; }

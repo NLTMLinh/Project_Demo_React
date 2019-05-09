@@ -1,0 +1,14 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+.dropdown {
+  padding-right: 10px;
+    .badge {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      margin-top: -16px !important;
+      margin-left: 0 !important;
+    }
+}

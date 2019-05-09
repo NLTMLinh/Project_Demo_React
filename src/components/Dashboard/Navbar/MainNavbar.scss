@@ -1,0 +1,12 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+.main-navbar{
+  height: 70px;
+  padding-top: 10px;
+  background-color: #11cdef;
+  .navbar{
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
