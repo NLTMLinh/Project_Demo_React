@@ -11,16 +11,7 @@ export default class Dashboard extends Component {
         this.state = {
             data: JSON.parse(localStorage.getItem("users") || "[]")
         }
-        // this.handleChangeData = this.handleChangeData.bind(this);
     }
-    //
-    // componentDidMount() {
-    //         window.addEventListener("click",this.handleChangeData,false);
-    // }
-    //
-    // handleChangeData() {
-    //     this.setState({data:JSON.parse(localStorage.getItem("users") || "[]")})
-    // }
 
     render() {
         return (

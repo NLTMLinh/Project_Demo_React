@@ -4,31 +4,24 @@ import './Footer.css';
 import '../../assets/style/res.css';
 import ImgCHPlay from '../../assets/resources/screen-shot-2019-01-24-at-11-13-29-am.png';
 import ImgGooglePlay from '../../assets/resources/screen-shot-2019-01-24-at-11-13-29-am.png';
-import '../FormLogIn/FormLogin'
 import LogoutButton from '../Header/LogoutButton'
+import {connect} from "react-redux";
 
-export default class Footer extends Component {
+class Footer extends Component {
     constructor(props) {
         super(props);
-        this.authStateChangedHandler = this.authStateChangedHandler.bind(this);
+        // this.authStateChangedHandler = this.authStateChangedHandler.bind(this);
         this.state = {
             isLoggedIn: this.props.isLoggedIn
         };
     }
-
-    authStateChangedHandler(value) {
-        console.log("auth", value);
-        this.setState({isLoggedIn: value});
-        this.props.authStateChangedHandler(value);
-    }
-
     componentWillReceiveProps(nextProps, nextContext) {
         console.log('footer', nextProps.isLoggedIn, this.state.isLoggedIn);
         if (nextProps.isLoggedIn !== this.state.isLoggedIn) {
-            console.log('set props')
+            console.log('set props');
             this.setState({isLoggedIn: nextProps.isLoggedIn})
         }
-        if (nextProps.isLoggedIn === "false") {
+        if (nextProps.isLoggedIn === false) {
             console.log("display btnLogout");
             document.getElementsByClassName('btnLogout')[0].style.display = 'none';
 
@@ -36,7 +29,8 @@ export default class Footer extends Component {
     }
 
     componentDidMount() {
-        if (this.state.isLoggedIn === 'true') {
+        console.log("isLoggedIn footer", this.state.isLoggedIn);
+        if (this.state.isLoggedIn === true) {
             document.getElementsByClassName('btnLogout')[0].style.display = "block";
 
         } else {
@@ -113,7 +107,7 @@ export default class Footer extends Component {
                         </Col>
                     </Row>
                     <div className="btnLogout">
-                        <LogoutButton authStateChangedHandler={this.authStateChangedHandler}/>
+                        <LogoutButton/>
                     </div>
                 </Container>
             </div>
@@ -121,3 +115,10 @@ export default class Footer extends Component {
     }
 
 }
+const mapStateToProps = (state) => {
+    return{
+        isLoggedIn: state.login_logout.isLoggedIn
+    }
+};
+
+export default connect(mapStateToProps)(Footer)

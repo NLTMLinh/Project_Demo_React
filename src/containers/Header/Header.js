@@ -6,29 +6,20 @@ import "../FormLogIn/frmLogin.css"
 import {Link} from 'react-router-dom'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
+import {connect} from "react-redux";
 
-export default class Header extends Component {
+class Header extends Component {
     constructor(props) {
         super(props);
 
         this.toggle = this.toggle.bind(this);
-        // this.handleLoginClick = this.handleLoginClick.bind(this);
-        // this.handleLogoutClick = this.handleLogoutClick.bind(this);
-        this.authStateChangedHandler = this.authStateChangedHandler.bind(this);
+
         this.state = {
             isOpen: false,
             isLoggedIn: this.props.isLoggedIn,
-            displayName: localStorage.getItem('name'),
+            // displayName: localStorage.getItem('name'),
+           displayName: this.props.name
         };
-
-    }
-
-    authStateChangedHandler(value) {
-        this.setState({
-            isLoggedIn: value,
-            displayName: localStorage.getItem('name')
-        });
-        this.props.authStateChangedHandler(value);
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
@@ -36,43 +27,11 @@ export default class Header extends Component {
         if (nextProps.isLoggedIn !== this.state.isLoggedIn) {
             this.setState({
                 isLoggedIn: nextProps.isLoggedIn,
-                displayName: localStorage.getItem('name'),
+                // displayName: localStorage.getItem('name'),
+                displayName: nextProps.name
             });
         }
     }
-
-    // handleLoginClick() {
-    //     this.setState({isLoggedIn: true, userName: this.state.name});
-    //     localStorage.setItem("name", this.state.name);
-    //     localStorage.setItem("isLoggedIn", "true");
-    //     console.log(this.state.name);
-    //     this.props.authStateChangedHandler("true");
-    //     console.log("Auth changed in FormLogIn login");
-    //     this.toggle();
-    // }
-
-    // handleLogoutClick() {
-    //     this.setState({isLoggedIn: false, userName: '', name: ''});
-    //     localStorage.removeItem("name");
-    //     localStorage.setItem("isLoggedIn", "false");
-    //     this.props.authStateChangedHandler("false");
-    // }
-
-    // componentDidMount() {
-    //     window.addEventListener('click', this.handleClickOutside, true);
-    // }
-    //
-    // componentWillUnmount() {
-    //     window.removeEventListener('click', this.handleClickOutside, true);
-    // }
-    //
-    // handleClickOutside = event => {
-    //     const domNode = ReactDOM.findDOMNode(this);
-    //     if (!domNode || !domNode.contains(event.target)) {
-    //         this.setState({isOpen: false})
-    //      }
-    // }
-
     toggle() {
         this.setState({
             isOpen: !this.state.isOpen
@@ -83,7 +42,7 @@ export default class Header extends Component {
         let button;
         if (this.state.isLoggedIn || this.state.displayName !== "") {
             if (this.state.displayName !== null) {
-                button = <LogoutButton userName={"Xin chào," + this.state.displayName} authStateChangedHandler={this.authStateChangedHandler}/>
+                button = <LogoutButton userName={"Xin chào," + this.state.displayName}/>
 
             } else {
                 button = <LoginButton/>
@@ -130,4 +89,14 @@ export default class Header extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    // let data = state;
+    console.log("data",state);
+    return{
+       isLoggedIn: state.login_logout.isLoggedIn,
+        name : state.login_logout.name
+    }
+};
+
+export default connect(mapStateToProps)(Header)
 

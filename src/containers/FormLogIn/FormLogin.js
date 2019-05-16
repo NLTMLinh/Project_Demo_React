@@ -2,9 +2,13 @@ import React, {Component} from 'react';
 import {Container, FormGroup, Label, Row, Button, Col, Input, Form, Card} from 'reactstrap';
 import "./frmLogin.css"
 import "../../assets/style/res.css"
-import {Route, Link, BrowserRouter as Router, Switch} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {LogIn} from '../../actions/actions'
+import {connect} from "react-redux";
 
-export default class FromLogin extends Component {
+
+
+class FromLogin extends Component {
     constructor(props) {
         super(props);
         this.handleLoginClick = this.handleLoginClick.bind(this);
@@ -16,7 +20,7 @@ export default class FromLogin extends Component {
             userName: '',
             passWord: '',
             isLoggedIn: this.props.isLoggedIn,
-            Users: JSON.parse(localStorage.getItem("users" || "[]"))
+             Users: this.props.users
         }
     }
 
@@ -45,7 +49,7 @@ export default class FromLogin extends Component {
 
     handleCheckUserName() {
         let check = false;
-
+        console.log("type user",this.state.Users);
         if (this.state.Users !== null) {
             this.state.Users.map(user => {
                 if (user.name === this.state.userName) {
@@ -55,7 +59,6 @@ export default class FromLogin extends Component {
 
             if (this.state.userName === "" || this.state.userName === null || !check) {
                 document.getElementById('check-userName').style.display = 'block';
-                document.getElementById('userName').focus();
             } else {
                 document.getElementById('check-userName').style.display = 'none';
             }
@@ -76,9 +79,7 @@ export default class FromLogin extends Component {
         }
         console.log("check", check);
         if (check) {
-            this.setState({isLoggedIn: true});
-            localStorage.setItem("name", displayName);
-            localStorage.setItem("isLoggedIn", "true");
+            this.props.LogIn(true,displayName);
         } else {
             alert("Tên đăng nhập hoặc mật khẩu sai, mời bạn đăng nhập lại");
         }
@@ -87,13 +88,13 @@ export default class FromLogin extends Component {
     componentWillReceiveProps(nextProps, nextContext) {
         if (nextProps.isLoggedIn !== this.state.isLoggedIn) {
             this.setState({isLoggedIn: nextProps.isLoggedIn})
-            this.setState({displayName: localStorage.getItem('name')});
+        }
+        if(nextProps.users !== this.state.users){
+            this.setState({Users: nextProps.users});
         }
     }
 
     handleChangeUserName(event) {
-        console.log("event", event);
-        console.log("target", event.target);
         this.setState({userName: event.target.value});
     }
 
@@ -145,7 +146,7 @@ export default class FromLogin extends Component {
                                     <Col className=" text-center">
                                         <Link to="/">
                                             <Button color="primary" onClick={this.handleLoginClick}
-                                                    check={this.state.check}>
+                                                    >
                                                 Đăng nhập
                                             </Button>
                                         </Link>
@@ -170,3 +171,17 @@ export default class FromLogin extends Component {
         )
     }
 }
+function mapDispatchToProps(dispatch){
+    return{
+        LogIn: (isLoggedIn,name) => dispatch(LogIn(isLoggedIn,name))
+    }
+}
+function mapStateToProps(state) {
+    return{
+        users: state.signin || []
+    }
+
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FromLogin);

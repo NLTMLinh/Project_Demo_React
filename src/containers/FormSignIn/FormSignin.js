@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import {Form, FormGroup, Label, Input, Col, Button, Container, Row,Card} from 'reactstrap';
 import './frmSignin.css'
 import {Link} from 'react-router-dom';
+import {connect} from "react-redux";
+import {LogIn} from "../../actions/actions";
+import {SignIn} from "../../actions/actions";
 
-
-export default class FormSignIn extends Component {
+class FormSignIn extends Component {
     constructor(props) {
         super(props);
         this.handleChangeUserName = this.handleChangeUserName.bind(this);
@@ -12,7 +14,8 @@ export default class FormSignIn extends Component {
         this.handleChangePassWord = this.handleChangePassWord.bind(this);
         this.handleChangePassWordAgain = this.handleChangePassWordAgain.bind(this);
         this.handleChangAge = this.handleChangAge.bind(this);
-        this.handleChangePhone = this.handleChangePhone.bind(this);
+        this.handleChangeSalary = this.handleChangeSalary.bind(this);
+        this.handleChangeImage = this.handleChangeImage.bind(this);
         this.handleSignInClick = this.handleSignInClick.bind(this);
         this.validateForm = this.validateForm.bind(this);
         this.handleCheckPassword = this.handleCheckPassword.bind(this);
@@ -24,14 +27,14 @@ export default class FormSignIn extends Component {
             passWord: '',
             passWordAgain: '',
             age: '',
-            phone: '',
+            salary: '',
+            image: '',
+            users: this.props.users
         }
     }
 
     componentDidMount() {
-        document.getElementById("re-passWord").addEventListener("blur", this.handleCheckPassword);
         document.getElementById("userName").addEventListener("blur", this.handleCheckUserName);
-        document.getElementById("displayName").addEventListener("blur", this.handleCheckDisplayName);
     }
 
     handleCheckPassword() {
@@ -45,7 +48,7 @@ export default class FormSignIn extends Component {
     handleCheckUserName(){
         let check = false;
         if (localStorage) {
-            let Users = JSON.parse(localStorage.getItem("users" || "[]"));
+            let Users = this.state.users;
             if (Users !== null) {
                 Users.map(user => {
                     if (user.name === this.state.userName) {
@@ -97,14 +100,20 @@ export default class FormSignIn extends Component {
         this.setState({age: event.target.value});
     }
 
-    handleChangePhone(event) {
+    handleChangeSalary(event) {
         this.setState({phone: event.target.value});
+    }
+    handleChangeImage(event){
+        this.setState({image: event.target.value});
+    }
+    componentWillReceiveProps(nextProps, nextContext) {
+        if(nextProps.users !== this.state.users){
+            this.state.users = {...nextProps.users};
+        }
     }
 
     handleSignInClick() {
-
-        if (localStorage) {
-            let Users = JSON.parse(localStorage.getItem("users") || "[]");
+            let Users = this.state.users;
             let id = 0;
             if (Users.length === 0) {
                 id = 1;
@@ -114,19 +123,15 @@ export default class FormSignIn extends Component {
             let User = {
                 id: id,
                 name: this.state.userName,
-                displayName: this.state.displayName,
-                passWord: this.state.passWord,
                 age: this.state.age,
-                phone: this.state.phone
+                salary: this.state.salary,
+                image: this.state.image
             };
-            Users.push(User);
-            localStorage.setItem("users", JSON.stringify(Users));
-            localStorage.setItem("name", this.state.displayName);
-        }
+            this.props.LogIn(true,this.state.userName);
     }
 
     validateForm() {
-        return this.state.userName !== '' &&this.state.displayName !== '' && this.state.passWord !== '' && this.state.passWord === this.state.passWordAgain && this.state.phone !== '' && (parseInt(this.state.age) > 0) && this.state.phone.length >= 10 && (parseInt(this.state.phone));
+        return this.state.userName !== '' &&this.state.phone !== '' && (parseInt(this.state.age) > 0) && this.state.phone.length >= 0 && (parseInt(this.state.phone));
     }
 
     render() {
@@ -155,34 +160,6 @@ export default class FormSignIn extends Component {
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label for="displayName" sm={4}>Tên hiển thị</Label>
-                                <Col sm={8}>
-                                    <Input type="text" name="displayName" id="displayName" placeholder="Tên hiển thị"
-                                           value={this.state.displayName} onChange={this.handleChangeDisplayName}/>
-                                </Col>
-                                <Col sm={{offset: 4}} >
-                                    <span id="displayName-not-empty">Tên hiển thị không được trống</span>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="password" sm={4}>Mật khẩu</Label>
-                                <Col sm={8}>
-                                    <Input type="password" name="password" id="password" placeholder="Mật khẩu"
-                                           value={this.state.passWord} onChange={this.handleChangePassWord}/>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="re-passWord" sm={4}>Nhập lại mật khẩu</Label>
-                                <Col sm={8}>
-                                    <Input type="password" name="re-passWord" id="re-passWord"
-                                           placeholder="Nhập lại mật khẩu" value={this.state.passWordAgain}
-                                           onChange={this.handleChangePassWordAgain}/>
-                                </Col>
-                                <Col sm={{offset: 4}}>
-                                    <span id="re-pW">Mật khẩu nhập lại sai</span>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
                                 <Label for="age" sm={4}>Tuổi</Label>
                                 <Col sm={8}>
                                     <Input type="number" name="age" id="age" placeholder="Tuổi" value={this.state.age}
@@ -190,15 +167,22 @@ export default class FormSignIn extends Component {
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label for="phone" sm={4}>Số điện thoại</Label>
+                                <Label for="salary" sm={4}>Lương</Label>
                                 <Col sm={8}>
-                                    <Input type="text" name="phone" id="phone" placeholder="Số điện thoại"
-                                           value={this.state.phone} onChange={this.handleChangePhone}/>
+                                    <Input type="text" name="salary" id="salary" placeholder="Lương"
+                                           value={this.state.salary} onChange={this.handleChangeSalary}/>
+                                </Col>
+                            </FormGroup>
+                            <FormGroup row>
+                                <Label for="image" sm={4}>Hình</Label>
+                                <Col sm={8}>
+                                    <Input type="text" name="image" id="image" placeholder="Hình"
+                                           value={this.state.salary} onChange={this.handleChangeImage}/>
                                 </Col>
                             </FormGroup>
                             <Col className="text-center mb-3">
                                 <Link to="/">
-                                    <Button color="primary" onClick={this.handleSignInClick}
+                                    <Button color="primary" onClick={this.handleSignInClick} disabled={!this.validateForm()}
                                             >Đăng kí</Button>
                                 </Link>
                             </Col>
@@ -210,3 +194,16 @@ export default class FormSignIn extends Component {
         )
     }
 }
+function mapDispatchToProps(dispatch){
+    return{
+        LogIn: (isLoggedIn,name) => dispatch(LogIn(isLoggedIn,name)),
+        SignIn: user => dispatch(SignIn(user)),
+    }
+}
+function mapStateToProps(state) {
+    return{
+        users: state.signin || []
+    }
+
+}
+export default connect(mapStateToProps,mapDispatchToProps)(FormSignIn)

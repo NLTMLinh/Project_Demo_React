@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "sf_pro_textregular";
+  src: url("../../assets/font/sf-pro-text-regular-webfont.woff2") format("woff2"), url("../../assets/font/sf-pro-text-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "sf_pro_textregular", sans-serif !important;
+  font-size: 16px;
+  font-weight: normal !important;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.footer {
+  margin-top: 47px;
+  background-color: #1c3152;
+}
+.footer .content-footer {
+  padding-right: 0;
+  margin-right: 0;
+  display: flex;
+  flex-direction: row;
+}
+.footer .content-footer .section-footer {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-right: 0;
+  display: flex;
+  flex-direction: row;
+}
+.footer .content-footer .section-footer .doi-tac {
+  padding-left: 60px;
+}
+.footer .content-footer .section-footer .footer-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+.footer .content-footer .section-footer .footer-item {
+  font-size: 0.8rem;
+  line-height: 2.4;
+  mix-blend-mode: lighten;
+  padding-top: 20px;
+}
+.footer .content-footer .section-footer .footer-item a {
+  color: #88969d;
+}
+.footer .content-footer .section-footer .footer-item a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.footer .content-footer .section-footer .footer-item .Ho-Tro {
+  color: #ffffff;
+}
+.footer .content-footer .section-footer .footer-item .footer-social {
+  width: 50%;
+  display: flex;
+  background-color: #243152;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+.footer .content-footer .section-footer .footer-item .footer-social i {
+  color: #ffffff;
+  background-color: #020406;
+}
+.footer .content-footer .section-footer-social {
+  margin: 25px 0 25px 10px;
+}
+.footer .content-footer .section-footer-social .footer-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+.footer .content-footer .section-footer-social .footer-item {
+  font-size: 0.8rem;
+  line-height: 2.4;
+  mix-blend-mode: lighten;
+  padding-top: 20px;
+}
+.footer .content-footer .section-footer-social .footer-item a {
+  color: #88969d;
+}
+.footer .content-footer .section-footer-social .footer-item a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.footer .content-footer .section-footer-social .footer-item .Ho-Tro {
+  color: #ffffff;
+}
+.footer .content-footer .section-footer-social .footer-item .footer-social {
+  width: 50%;
+  display: flex;
+  background-color: #243152;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+.footer .content-footer .section-footer-social .footer-item .footer-social i {
+  color: #ffffff;
+  background-color: #020406;
+  padding-right: 15px;
+}
+.footer .content-footer .section-footer-social hr {
+  border: #ffffff 1px solid;
+  width: 100%;
+}
+.footer .content-footer .section-footer-social .logo-CHPlay {
+  display: flex;
+  flex-direction: row;
+}
+.footer .content-footer .section-footer-social .logo-CHPlay img {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.footer .content-footer .section-footer-social .footer-rapbank-VN {
+  padding-top: 45px;
+  font-size: 0.9rem;
+  line-height: 2.4;
+  color: #88969d;
+}
+
+/*# sourceMappingURL=Footer.css.map */

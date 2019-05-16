@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "sf_pro_textregular";
+  src: url("../../assets/font/sf-pro-text-regular-webfont.woff2") format("woff2"), url("../../assets/font/sf-pro-text-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "sf_pro_textregular", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.App-logo {
+  width: auto;
+  height: 40px;
+}
+
+.header {
+  background-color: white;
+  top: 0;
+  box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+  border-radius: 3px;
+  z-index: 2;
+}
+.header .header-content {
+  background-color: white;
+}
+.header .header-content .navbar-nav {
+  z-index: 2;
+}
+.header .header-content .navbar-nav .navbar-brand {
+  width: 50%;
+}
+.header .header-content .navbar-nav .nav-item {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: left;
+  justify-content: center;
+}
+.header .header-content .navbar-nav .nav-item a {
+  color: #6b6b6b;
+}
+.header .header-content .navbar-nav .nav-item.active .nav-link, .header .header-content .navbar-nav .nav-item a:hover {
+  height: 30px;
+  color: #ffffff;
+  border-radius: 2px;
+  align-content: center;
+  background-color: #194a79;
+}
+.header .DangNhap {
+  align-items: center;
+}
+.header .DangNhap a:hover {
+  text-decoration: none;
+  font-size: 18px;
+  color: #00b3ff;
+}
+
+/*# sourceMappingURL=Header.css.map */

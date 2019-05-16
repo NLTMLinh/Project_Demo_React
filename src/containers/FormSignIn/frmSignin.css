@@ -1,12 +1,13 @@
 @font-face {
-  font-family: 'sf_pro_textregular';
+  font-family: "sf_pro_textregular";
   src: url("../../assets/font/sf-pro-text-regular-webfont.woff2") format("woff2"), url("../../assets/font/sf-pro-text-regular-webfont.woff") format("woff");
   font-weight: normal;
-  font-style: normal; }
-
+  font-style: normal;
+}
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body {
   font-family: "sf_pro_textregular", sans-serif !important;
@@ -18,7 +19,8 @@ body {
   letter-spacing: normal;
   color: #6b6b6b;
   background-color: #fff;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+}
 
 .SignIn #re-pW, .SignIn #name-exist, .SignIn #name-not-empty, .SignIn #displayName-not-empty {
   display: none;
@@ -26,4 +28,7 @@ body {
   padding-left: 12px;
   font-style: italic;
   font-size: 0.8rem;
-  color: #1c3152; }
+  color: #1c3152;
+}
+
+/*# sourceMappingURL=frmSignin.css.map */

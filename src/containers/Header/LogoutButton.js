@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
 import {Button} from 'reactstrap';
-import "./Header.css"
-import "../FormLogIn/frmLogin.css"
 import {Link} from 'react-router-dom'
+import {connect} from "react-redux";
+import {LogOut} from '../../actions/actions'
 
+function mapDispatchToProps(dispatch){
+    return{
+        LogOut: isLoggedIn => dispatch(LogOut(isLoggedIn))
+    }
+}
 
-export default class LogoutButton extends Component {
+class LogoutButton extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this)
     }
 
     handleClick() {
-        localStorage.removeItem("name");
-        localStorage.setItem("isLoggedIn", "false");
-        this.props.authStateChangedHandler("false");
-        console.log("Auth changed in Logout")
+        this.props.LogOut(false);
+        // localStorage.removeItem("name");
     }
 
     render() {
@@ -33,3 +36,5 @@ export default class LogoutButton extends Component {
         )
     }
 }
+
+export default connect(null,mapDispatchToProps)(LogoutButton)
