@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import {connect} from "react-redux";
+import rootReducer from "../../reducers";
 
 class Header extends Component {
     constructor(props) {
@@ -17,7 +18,6 @@ class Header extends Component {
         this.state = {
             isOpen: false,
             isLoggedIn: this.props.isLoggedIn,
-            // displayName: localStorage.getItem('name'),
            displayName: this.props.name
         };
     }
@@ -27,7 +27,6 @@ class Header extends Component {
         if (nextProps.isLoggedIn !== this.state.isLoggedIn) {
             this.setState({
                 isLoggedIn: nextProps.isLoggedIn,
-                // displayName: localStorage.getItem('name'),
                 displayName: nextProps.name
             });
         }
@@ -90,10 +89,8 @@ class Header extends Component {
     }
 }
 const mapStateToProps = (state) => {
-    // let data = state;
-    console.log("data",state);
     return{
-       isLoggedIn: state.login_logout.isLoggedIn,
+        isLoggedIn: state.login_logout.isLoggedIn,
         name : state.login_logout.name
     }
 };

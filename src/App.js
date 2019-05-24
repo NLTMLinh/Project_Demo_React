@@ -1,39 +1,48 @@
-import React,{Component} from 'react';
-import Header from './containers/Header/Header';
-import Menu from './components/Menu/Menu';
-import TopNews from './components/TopNews/TopNews';
-import MidNews from './components/MidNews/MidNews';
-import BotNews from './components/BotNews/BotNews';
-import Footer from './containers/Footer/Footer';
-import Mobile from './components/Mobile/Mobile';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ReactDOM from "react-dom";
+import React from 'react';
+import AppPage from './AppPage';
+import Dashboard from './containers/Dashboard/Dashboard'
+import {Route, Switch, Redirect, BrowserRouter as Router} from 'react-router-dom'
+import LogIn from './components/LogIn/LogIn'
+import SignIn from './components/SignIn/SignIn'
+import history from './services/history'
+import {connect} from 'react-redux'
 
- export default class App extends Component{
-     componentDidMount() {
-        window.addEventListener('click', this.handleClickOutside, true);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('click', this.handleClickOutside, true);
-    }
-    handleClickOutside = event => {
-        const domNode = ReactDOM.findDOMNode(this);
-        if (!domNode || !domNode.contains(event.target)) {
-            this.setState({isOpen: false})
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: this.props.isLoggedIn
         }
     }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        if (nextProps.isLoggedIn !== this.state.isLoggedIn) {
+            this.setState({isLoggedIn: nextProps.isLoggedIn});
+        }
+    }
+
     render() {
-        return(
-            <div>
-                <Header/>
-                <Menu/>
-                <TopNews/>
-                <MidNews/>
-                <BotNews/>
-                <Mobile/>
-                <Footer/>
-            </div>
+        return (
+            <Router history={history}>
+                <div>
+                    <Switch>
+                        <Route exact path="/" render={() => <AppPage/>}/>
+                        <Route path="/Login" render={() => <LogIn/>}/>
+                        <Route path="/SignIn" render={() => <SignIn/>}/>
+                    </Switch>
+                    <Route path="/Dashboard"
+                           render={() => this.state.isLoggedIn ? (<Dashboard/>) : (<Redirect to="/"/>)}/>
+                </div>
+            </Router>
         )
     }
+
 }
+
+function mapStateToProp(state) {
+    return {
+        isLoggedIn: state.login_logout.isLoggedIn
+    }
+}
+
+export default connect(mapStateToProp)(App)

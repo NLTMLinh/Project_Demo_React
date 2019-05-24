@@ -1,10 +1,27 @@
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
 export const SIGN_IN = "SIGN_IN";
-export const DELETE_USER = "DELETE_USER";
 export const EDIT_USER = "EDIT_USER";
-export const FETCH_EMPLOYEES_SUCCESS = "FETCH_EMPLOYEES_SUCCESS";
-export const FETCH_EMPLOYEES_ERROR = "FETCH_EMPLOYEES_ERROR";
-export const FETCH_EMPLOYEES_LOADING = "FETCH_EMPLOYEES_LOADING";
 
-export const apiURL = 'http://dummy.restapiexample.com/api/v1/employees';
+export const FETCH_USERS = "FETCH_USERS";
+export const FETCH_USERS_LOADING = "FETCH_USERS_LOADING";
+export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
+export const FETCH_USERS_ERROR = "FETCH_USERS_ERROR";
+
+export const CREATE_USER = "CREATE_USER";
+export const CREATE_USER_LOADING = "CREATE_USER_LOADING";
+export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";
+export const CREATE_USER_ERROR = "CREATE_USER_ERROR";
+
+export const DELETE_USER = "DELETE_USER";
+export const DELETE_USER_LOADING = "DELETE_USER_LOADING";
+export const DELETE_USER_SUCCESS = "DELETE_USER_SUCCESS";
+export const DELETE_USER_ERROR = "DELETE_USER_ERROR";
+
+export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_USER_LOADING = "UPDATE_USER_LOADING";
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_USER_ERROR = "UPDATE_USER_ERROR";
+
+
+export const apiURL = 'http://localhost:4500/users';

@@ -3,12 +3,13 @@ import '../../components/Dashboard/Navbar/DataTable/UserTable.css'
 import {Link} from 'react-router-dom';
 import {Button} from "reactstrap";
 import {connect} from "react-redux";
-import {LogOut,DeleteUser} from "../../actions/actions";
-
+import {LogOut} from "../../actions/actions";
+import {DELETE_USER} from "../../constants/ActionTypes";
+import navigateTo from '../../services/navigation'
 function mapDispatchToProps(dispatch) {
     return{
-        LogOut: isLoggedIn => dispatch(LogOut(isLoggedIn)),
-        DeleteUser: id => dispatch(DeleteUser(id)),
+        // LogOut: isLoggedIn => dispatch(LogOut(isLoggedIn)),
+        deleteUser: id => dispatch({type: DELETE_USER,id}),
     }
 }
 
@@ -19,8 +20,11 @@ class Delete extends Component {
     }
 
     handleDeleteClick(){
-            this.props.LogOut(false);
-            this.props.DeleteUser(this.props.id);
+        if(window.confirm("Bạn thực sự muốn xóa người này?")) {
+            // this.props.LogOut(false);
+            this.props.deleteUser(this.props.id);
+            navigateTo('/Dashboard')
+        }
     }
     render() {
         return (
@@ -29,6 +33,5 @@ class Delete extends Component {
             </Link>
         )
     }
-
 }
 export default connect(null,mapDispatchToProps)(Delete)

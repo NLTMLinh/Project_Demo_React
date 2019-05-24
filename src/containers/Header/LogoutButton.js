@@ -3,6 +3,7 @@ import {Button} from 'reactstrap';
 import {Link} from 'react-router-dom'
 import {connect} from "react-redux";
 import {LogOut} from '../../actions/actions'
+import navigateTo from '../../services/navigation'
 
 function mapDispatchToProps(dispatch){
     return{
@@ -18,7 +19,7 @@ class LogoutButton extends Component {
 
     handleClick() {
         this.props.LogOut(false);
-        // localStorage.removeItem("name");
+        // navigateTo('/');
     }
 
     render() {

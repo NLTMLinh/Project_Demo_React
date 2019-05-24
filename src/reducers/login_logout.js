@@ -1,22 +1,25 @@
 import {LOG_IN, LOG_OUT} from '../constants/ActionTypes'
 const init= {
-    isLoggedIn: null,
+    isLoggedIn: false,
     name: ""
 };
 
 const login_logout = (state = init, action) => {
-    let nextState = {...state};
     switch (action.type) {
         case LOG_IN:
-           nextState.isLoggedIn = action.isLoggedIn;
-           nextState.name = action.name;
-           return nextState;
+          return{
+              ...state,
+              isLoggedIn: action.isLoggedIn,
+              name: action.name
+          };
         case LOG_OUT:
-            nextState.isLoggedIn = action.isLoggedIn;
-            nextState.name = "";
-           return nextState;
+            return{
+                ...state,
+                isLoggedIn: action.isLoggedIn,
+                name: ""
+            };
         default:
-            return nextState;
+            return state;
     }
 };
 

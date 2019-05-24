@@ -1,29 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import Dashboard from './containers/Dashboard/Dashboard'
-import { Route, BrowserRouter as Router } from 'react-router-dom'
-import LogIn from './components/LogIn/LogIn'
-import SignIn from './components/SignIn/SignIn'
-import { createStore,applyMiddleware,compose } from 'redux'
-import { Provider } from 'react-redux'
+import { createStore,applyMiddleware } from 'redux'
+import { Provider  } from 'react-redux'
 import rootReducer from './reducers/index'
-import fetchEmployees from './reducers/fetchEmployees'
+import {BrowserRouter} from "react-router-dom";
+import { persistStore, persistReducer } from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web and AsyncStorage for react-native
 import createSagaMiddleAware from 'redux-saga'
+import rootSaga from './saga/index'
+import App from './App'
+const sagaMiddleware  = createSagaMiddleAware();
 
-const middleaware = createSagaMiddleAware();
-const store = createStore(rootReducer,applyMiddleware(middleaware));
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+const store = createStore(persistedReducer,applyMiddleware(sagaMiddleware ));
+let persistor = persistStore(store)
+sagaMiddleware .run(rootSaga);
 
-middleaware.run(fetchEmployees);
 
 const routing = (
-    <Provider store={store}>
-    <Router>
-            <Route exact path = "/" component={App}/>
-            <Route path = "/Login" component = {LogIn}/>
-            <Route path = "/Dashboard" component = {Dashboard}/>
-            <Route path = "/SignIn" component = {SignIn}/>
-    </Router>
+    <Provider store={store} >
+        <PersistGate loading={null} persistor={persistor}>
+        <App/>
+        </PersistGate>
     </Provider>
-)
+);
 ReactDOM.render(routing, document.getElementById('root'));

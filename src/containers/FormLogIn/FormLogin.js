@@ -5,6 +5,8 @@ import "../../assets/style/res.css"
 import {Link} from 'react-router-dom';
 import {LogIn} from '../../actions/actions'
 import {connect} from "react-redux";
+import {FETCH_USERS} from "../../constants/ActionTypes";
+import navigateTo from "../../services/navigation";
 
 
 
@@ -25,6 +27,7 @@ class FromLogin extends Component {
     }
 
     componentDidMount() {
+        this.props.fetchUsers();
         document.getElementById("userName").addEventListener("blur", this.handleCheckUserName);
         document.getElementById("password").addEventListener("blur", this.handleCheckPassword);
     }
@@ -40,7 +43,7 @@ class FromLogin extends Component {
             });
             if (this.state.passWord === "" || this.state.passWord === null || !check) {
                 document.getElementById('check-passWord').style.display = 'block';
-                document.getElementById('password').focus();
+                // document.getElementById('password').focus();
             } else {
                 document.getElementById('check-passWord').style.display = 'none';
             }
@@ -71,15 +74,15 @@ class FromLogin extends Component {
 
         if (this.state.Users !== null) {
             this.state.Users.map(user => {
-                if (user.name === this.state.userName && user.passWord === this.state.passWord) {
+                if (user.name === this.state.userName && user.passWord === this.state.passWord ) {
                     check = true;
                     displayName = user.displayName;
                 }
             });
         }
-        console.log("check", check);
         if (check) {
             this.props.LogIn(true,displayName);
+            navigateTo('/');
         } else {
             alert("Tên đăng nhập hoặc mật khẩu sai, mời bạn đăng nhập lại");
         }
@@ -173,12 +176,13 @@ class FromLogin extends Component {
 }
 function mapDispatchToProps(dispatch){
     return{
-        LogIn: (isLoggedIn,name) => dispatch(LogIn(isLoggedIn,name))
+        LogIn: (isLoggedIn,name) => dispatch(LogIn(isLoggedIn,name)),
+        fetchUsers: () => dispatch({type:FETCH_USERS}),
     }
 }
 function mapStateToProps(state) {
     return{
-        users: state.signin || []
+        users: state.userReducer.users || []
     }
 
 }

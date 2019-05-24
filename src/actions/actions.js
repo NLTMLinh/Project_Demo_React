@@ -1,4 +1,16 @@
-import {LOG_IN,LOG_OUT,SIGN_IN,DELETE_USER,EDIT_USER,FETCH_EMPLOYEES_ERROR,FETCH_EMPLOYEES_SUCCESS,FETCH_EMPLOYEES_LOADING} from "../constants/ActionTypes";
+import {
+    LOG_IN,
+    LOG_OUT,
+    FETCH_USERS_SUCCESS,
+    FETCH_USERS_ERROR,
+    FETCH_USERS_LOADING,
+    CREATE_USER_ERROR,
+    CREATE_USER_LOADING,
+    CREATE_USER_SUCCESS,
+    DELETE_USER_SUCCESS,
+    DELETE_USER_ERROR,
+    DELETE_USER_LOADING, UPDATE_USER_SUCCESS, UPDATE_USER_ERROR, UPDATE_USER_LOADING
+} from "../constants/ActionTypes";
 
 export function LogIn(isLoggedIn,name){
     return{
@@ -6,50 +18,83 @@ export function LogIn(isLoggedIn,name){
         isLoggedIn,
         name
     }
-};
+}
 
 export function LogOut(isLoggedIn){
     return{
         type: LOG_OUT,
         isLoggedIn
     }
-};
+}
 
-export function SignIn(user) {
-    return{
-        type: SIGN_IN,
-        user
-    }
-
-}
-export function DeleteUser(id) {
-    return{
-        type: DELETE_USER,
-        id
-    }
-}
-export function EditUser(user) {
-    return{
-        type: EDIT_USER,
-        user
-    }
-}
-export function FetchEmployeesSuccess(employees) {
+export function FetchUsersSuccess(users) {
     return {
-        type: FETCH_EMPLOYEES_SUCCESS,
-        employees
+        type: FETCH_USERS_SUCCESS,
+        users: users
     }
 }
-export function FetchEmployeesError(error) {
+export function FetchUsersError(error) {
     return{
-        type: FETCH_EMPLOYEES_ERROR,
+        type: FETCH_USERS_ERROR,
         error
     }
-
 }
-export function FetchEmployeesLoading() {
+export function FetchUsersLoading() {
     return{
-        type: FETCH_EMPLOYEES_LOADING
+        type: FETCH_USERS_LOADING
     }
+}
 
+export function CreateUsersSuccess(user) {
+    return {
+        type: CREATE_USER_SUCCESS,
+        user: user
+    }
+}
+export function CreateUsersError(error) {
+    return{
+        type: CREATE_USER_ERROR,
+        error
+    }
+}
+export function CreateUsersLoading() {
+    return{
+        type: CREATE_USER_LOADING
+    }
+}
+
+export function DeleteUsersSuccess(user) {
+    return {
+        type: DELETE_USER_SUCCESS,
+        user: user
+    }
+}
+export function DeleteUsersError(error) {
+    return{
+        type: DELETE_USER_ERROR,
+        error
+    }
+}
+export function DeleteUsersLoading() {
+    return{
+        type: DELETE_USER_LOADING
+    }
+}
+
+export function UpdateUsersSuccess(user) {
+    return {
+        type: UPDATE_USER_SUCCESS,
+        user: user
+    }
+}
+export function UpdateUsersError(error) {
+    return{
+        type: UPDATE_USER_ERROR,
+        error
+    }
+}
+export function UpdateUsersLoading() {
+    return{
+        type: UPDATE_USER_LOADING
+    }
 }

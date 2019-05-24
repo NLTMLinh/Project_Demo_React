@@ -4,23 +4,24 @@ import Sidebar from '../../components/Dashboard/Sidebar';
 import TableList from '../../components/Dashboard/Navbar/DataTable/TableList'
 import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
-import {FetchEmployeesLoading} from "../../actions/actions";
+import {FETCH_USERS} from "../../constants/ActionTypes";
 
 class Dashboard extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            data: this.props.employees
+            data: this.props.users
         }
     }
-    componentWillMount() {
-        const {fetchEmployees} =  this.props;
-        fetchEmployees();
+    componentDidMount() {
+        const {fetchUsers} = this.props;
+        fetchUsers();
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        if(!nextProps.error && nextProps.employees !== this.state.data){
-           this.setState({data: nextProps.employees});
+        if(!nextProps.error && nextProps.users !== this.state.data){
+           this.setState({data: nextProps.users});
         }
     }
     render() {
@@ -42,20 +43,20 @@ class Dashboard extends Component {
                 </Container>
             </div>
         )
-    }
+    }np
 }
 
 function mapStateToProps(state) {
+    console.log("state",state);
     return {
-        loading: state.EmployeesReducer.loading,
-        error:state.EmployeesReducer.error,
-        employees: state.EmployeesReducer.employees || []
+        loading: state.userReducer.loading,
+        error:state.userReducer.error,
+        users: state.userReducer.users || []
     }
 }
 function mapDispatchToProps(dispatch) {
-    console.log("dispatch");
     return {
-        fetchEmployees: () => dispatch(FetchEmployeesLoading())
+        fetchUsers: () => dispatch({type:FETCH_USERS})
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);

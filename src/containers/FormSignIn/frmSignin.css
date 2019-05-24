@@ -22,7 +22,7 @@ body {
   overflow-x: hidden;
 }
 
-.SignIn #re-pW, .SignIn #name-exist, .SignIn #name-not-empty, .SignIn #displayName-not-empty {
+.SignIn #re-pW, .SignIn #name-exist, .SignIn #name-not-empty, .SignIn #displayName-not-empty, .SignIn #password-not-empty {
   display: none;
   padding-top: 10px;
   padding-left: 12px;
