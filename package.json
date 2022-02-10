@@ -8,7 +8,7 @@
     "bson": "^4.0.2",
     "fetch": "^1.1.0",
     "history": "^4.9.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "node-sass-watcher": "^0.5.1",
     "owl.carousel": "^2.3.4",
     "react": "^16.8.6",
